@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.logout);
-
         textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
 
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
