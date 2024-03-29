@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.FirebaseDatabaseKtxRegistrar;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FirebaseDatabase.getInstance().getReference().child("Bai1").child("conbo").setValue("1234");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
@@ -42,5 +47,11 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        /*
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("Name", "Richar");
+        map.put("Email", "richar@gmail.com");
+        */
     }
 }
